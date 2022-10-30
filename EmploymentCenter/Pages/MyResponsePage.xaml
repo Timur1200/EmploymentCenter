@@ -1,0 +1,40 @@
+﻿<Page x:Class="EmploymentCenter.Pages.MyResponsePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EmploymentCenter.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="MyResponsePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.33*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+
+                
+
+
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid AutoGenerateColumns="False" Name="DGridClient" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Вакансия" Binding="{Binding Вакансия.Название}" />
+                    <DataGridTextColumn Header="Дата" Binding="{Binding Вакансия.Date}" />
+                    
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>
