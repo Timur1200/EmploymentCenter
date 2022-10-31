@@ -66,5 +66,10 @@ namespace EmploymentCenter.Windows
         {
             PageNavigator.Frame.Navigate(new VacancyList(true));
         }
+
+        private void PersonalDataClick(object sender, RoutedEventArgs e)
+        {
+            PageNavigator.Frame.Navigate(new PersonalDataPage());
+        }
     }
 }

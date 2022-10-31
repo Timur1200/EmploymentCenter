@@ -20,6 +20,7 @@
                 <MenuItem Click="BackClick" Header="Назад"></MenuItem>
                 <MenuItem Click="SearchVacancyClick" Header="Поиск работы"></MenuItem>
                 <MenuItem Click="MyResponseClick" Header="Мои отклики"></MenuItem>
+                <MenuItem Click="PersonalDataClick" Header="О себе"></MenuItem>
             </Menu>
             <!-- Работодатель -->
             <Menu Visibility="Collapsed" Name="UserMenu2" Background="AliceBlue">

@@ -23,7 +23,7 @@
             <TextBlock Text="Повторите пароль" />
             <PasswordBox Name="PassBox2" />
             <StackPanel Name="UserBar">
-                <TextBlock Text="О себе" />
+                <TextBlock Text="Резюме" />
                     <TextBox AcceptsReturn="True" Height="Auto" TextWrapping="Wrap" Text="{Binding Резюме}" />
             </StackPanel>
                 <StackPanel Name="User2Bar">

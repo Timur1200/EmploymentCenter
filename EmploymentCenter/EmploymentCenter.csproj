@@ -98,6 +98,9 @@
     <Compile Include="Pages\NewVacancyPage.xaml.cs">
       <DependentUpon>NewVacancyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PersonalDataPage.xaml.cs">
+      <DependentUpon>PersonalDataPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ResponseWorkersPage.xaml.cs">
       <DependentUpon>ResponseWorkersPage.xaml</DependentUpon>
     </Compile>
@@ -196,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\NewVacancyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PersonalDataPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
