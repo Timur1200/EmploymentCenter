@@ -29,6 +29,7 @@
                     <DataGridTextColumn Header="Вакансия" Binding="{Binding Название}" />
                     <DataGridTextColumn Header="Дата" Binding="{Binding Date}" />
                     <DataGridTextColumn Header="Опыт работы" Binding="{Binding Опыт}" />
+                    <DataGridTextColumn Header="Зарплата" Binding="{Binding Зарплата}" />
                     <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />
                     <DataGridTextColumn Header="Откликов" Binding="{Binding Response}" />
                     <DataGridTemplateColumn>

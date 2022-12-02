@@ -27,6 +27,7 @@
           <Property Name="Статус" Type="bit" />
           <Property Name="Дата" Type="date" />
           <Property Name="Опыт" Type="int" />
+          <Property Name="Зарплата" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Отклик">
           <Key>
@@ -47,6 +48,7 @@
           <Property Name="Телефон" Type="nvarchar" MaxLength="50" />
           <Property Name="Пароль" Type="nvarchar" MaxLength="50" />
           <Property Name="Резюме" Type="nvarchar(max)" />
+          <Property Name="Почта" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Работодатель">
           <Key>
@@ -57,6 +59,7 @@
           <Property Name="Телефон" Type="nvarchar" MaxLength="50" />
           <Property Name="Пароль" Type="nvarchar" MaxLength="50" />
           <Property Name="НаименованиеКомпании" Type="nvarchar" MaxLength="50" />
+          <Property Name="Почта" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Специалист">
           <Key>
@@ -176,17 +179,7 @@
           <NavigationProperty Name="Работодатель" Relationship="Self.FK_Вакансия_Работодатель" FromRole="Вакансия" ToRole="Работодатель" />
           <NavigationProperty Name="Специальности" Relationship="Self.FK_Вакансия_Специальности" FromRole="Вакансия" ToRole="Специальности" />
           <NavigationProperty Name="Отклик" Relationship="EmploymentCenterModel.FK_Отклик_Вакансия" FromRole="Вакансия" ToRole="Отклик" />
-        </EntityType>
-        <EntityType Name="Пользователь">
-          <Key>
-            <PropertyRef Name="Код" />
-          </Key>
-          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Фио" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Резюме" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Отклик" Relationship="EmploymentCenterModel.FK_Отклик_Пользователь" FromRole="Пользователь" ToRole="Отклик" />
+          <Property Name="Зарплата" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Работодатель">
           <Key>
@@ -198,6 +191,7 @@
           <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="НаименованиеКомпании" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Вакансия" Relationship="Self.FK_Вакансия_Работодатель" FromRole="Работодатель" ToRole="Вакансия" />
+          <Property Name="Почта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Специалист">
           <Key>
@@ -243,7 +237,6 @@
         <EntityContainer Name="EmploymentCenterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Вакансия" EntityType="Self.Вакансия" />
-          <EntitySet Name="Пользователь" EntityType="Self.Пользователь" />
           <EntitySet Name="Работодатель" EntityType="Self.Работодатель" />
           <EntitySet Name="Специалист" EntityType="Self.Специалист" />
           <EntitySet Name="Специальности" EntityType="Self.Специальности" />
@@ -260,6 +253,7 @@
             <End Role="Вакансия" EntitySet="Вакансия" />
             <End Role="Отклик" EntitySet="Отклик" />
           </AssociationSet>
+          <EntitySet Name="Пользователь" EntityType="EmploymentCenterModel.Пользователь" />
           <AssociationSet Name="FK_Отклик_Пользователь" Association="EmploymentCenterModel.FK_Отклик_Пользователь">
             <End Role="Пользователь" EntitySet="Пользователь" />
             <End Role="Отклик" EntitySet="Отклик" />
@@ -289,6 +283,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Пользователь">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фио" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Резюме" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Почта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Отклик" Relationship="EmploymentCenterModel.FK_Отклик_Пользователь" FromRole="Пользователь" ToRole="Отклик" />
+        </EntityType>
         <Association Name="FK_Отклик_Пользователь">
           <End Type="EmploymentCenterModel.Пользователь" Role="Пользователь" Multiplicity="1" />
           <End Type="EmploymentCenterModel.Отклик" Role="Отклик" Multiplicity="*" />
@@ -321,6 +327,7 @@
           <EntitySetMapping Name="Вакансия">
             <EntityTypeMapping TypeName="EmploymentCenterModel.Вакансия">
               <MappingFragment StoreEntitySet="Вакансия">
+                <ScalarProperty Name="Зарплата" ColumnName="Зарплата" />
                 <ScalarProperty Name="Код" ColumnName="Код" />
                 <ScalarProperty Name="КодСпециальности" ColumnName="КодСпециальности" />
                 <ScalarProperty Name="КодРаботодателя" ColumnName="КодРаботодателя" />
@@ -332,20 +339,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Пользователь">
-            <EntityTypeMapping TypeName="EmploymentCenterModel.Пользователь">
-              <MappingFragment StoreEntitySet="Пользователь">
-                <ScalarProperty Name="Код" ColumnName="Код" />
-                <ScalarProperty Name="Фио" ColumnName="Фио" />
-                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
-                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
-                <ScalarProperty Name="Резюме" ColumnName="Резюме" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Работодатель">
             <EntityTypeMapping TypeName="EmploymentCenterModel.Работодатель">
               <MappingFragment StoreEntitySet="Работодатель">
+                <ScalarProperty Name="Почта" ColumnName="Почта" />
                 <ScalarProperty Name="Код" ColumnName="Код" />
                 <ScalarProperty Name="Фио" ColumnName="Фио" />
                 <ScalarProperty Name="Телефон" ColumnName="Телефон" />
@@ -379,6 +376,18 @@
                 <ScalarProperty Name="ДатаОтправки" ColumnName="ДатаОтправки" />
                 <ScalarProperty Name="КодПользователя" ColumnName="КодПользователя" />
                 <ScalarProperty Name="КодВакансии" ColumnName="КодВакансии" />
+                <ScalarProperty Name="Код" ColumnName="Код" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пользователь">
+            <EntityTypeMapping TypeName="EmploymentCenterModel.Пользователь">
+              <MappingFragment StoreEntitySet="Пользователь">
+                <ScalarProperty Name="Почта" ColumnName="Почта" />
+                <ScalarProperty Name="Резюме" ColumnName="Резюме" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Фио" ColumnName="Фио" />
                 <ScalarProperty Name="Код" ColumnName="Код" />
               </MappingFragment>
             </EntityTypeMapping>

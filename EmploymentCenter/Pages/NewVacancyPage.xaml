@@ -29,6 +29,7 @@
             <DataGrid AutoGenerateColumns="False" Name="DGridClient" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Вакансия" Binding="{Binding Название}" />
+                    <DataGridTextColumn Header="Зарплата" Binding="{Binding Зарплата}" />
                     <DataGridTextColumn Header="Дата" Binding="{Binding Date}" />
                     <DataGridTextColumn Header="Опыт работы" Binding="{Binding Опыт}" />
                     <DataGridTextColumn Header="Статус" Binding="{Binding Status}" />

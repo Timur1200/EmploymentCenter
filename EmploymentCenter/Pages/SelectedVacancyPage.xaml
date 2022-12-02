@@ -13,6 +13,7 @@
         <ScrollViewer>
             <StackPanel HorizontalAlignment="Center" Width="400" VerticalAlignment="Top" Margin="0,10">
                 <TextBlock FontSize="20" Text="{Binding Название}" />
+                <TextBlock FontSize="18" Text="{Binding Зарплата}" />
                 <TextBlock Text="{Binding Exp, StringFormat={}{0}}" />
                 <TextBlock FontSize="16" Text="{Binding Описание}" />
                 <TextBlock Text="{Binding Date, StringFormat={}Вакансия опубликована: {0} }" />

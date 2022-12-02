@@ -28,6 +28,7 @@ namespace EmploymentCenter.Model
         public Nullable<bool> Статус { get; set; }
         public Nullable<System.DateTime> Дата { get; set; }
         public Nullable<int> Опыт { get; set; }
+        public string Зарплата { get; set; }
     
         public virtual Работодатель Работодатель { get; set; }
         public virtual Специальности Специальности { get; set; }

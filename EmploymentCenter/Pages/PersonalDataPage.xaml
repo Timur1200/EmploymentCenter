@@ -4,7 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EmploymentCenter.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PersonalDataPage">
 
@@ -13,7 +15,9 @@
             <TextBlock Text="Фио" Name="TBlockFio" />
             <TextBox Text="{Binding Фио}" />
             <TextBlock Text="Номер телефона" />
-            <TextBox Text="{Binding Телефон}" />
+            <xctk:MaskedTextBox ValueDataType="{x:Type s:String}" Mask="+7(000) 000-0000" Text="{Binding Телефон}" />
+            <TextBlock Text="Почта" />
+            <TextBox Text="{Binding Почта}" />
             <TextBlock Text="Резюме" />
             <TextBox Text="{Binding Резюме}" AcceptsReturn="True"  />
             <Button Click="SaveClick" Content="Обновить данные" />

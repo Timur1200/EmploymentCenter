@@ -25,6 +25,7 @@ namespace EmploymentCenter.Model
         public string Телефон { get; set; }
         public string Пароль { get; set; }
         public string НаименованиеКомпании { get; set; }
+        public string Почта { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Вакансия> Вакансия { get; set; }

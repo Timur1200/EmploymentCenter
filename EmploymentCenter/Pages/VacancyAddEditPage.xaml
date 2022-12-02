@@ -22,6 +22,9 @@
                 <TextBox Height="Auto" AcceptsReturn="True" Text="{Binding Описание}" />
                 <TextBlock Text="Опыт работы" />
                 <TextBox Text="{Binding Опыт}" />
+                <TextBlock Text="Зарплата" />
+                <TextBox Text="{Binding Зарплата}" />
+
                 <Button Content="Сохранить" Click="SaveClick" />
             </StackPanel>
             
