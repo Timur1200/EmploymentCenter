@@ -6,15 +6,15 @@
     <edmx:Diagrams>
       <Diagram DiagramId="83040ae4949f4146ad6fdd45233d0008" Name="Diagram1">
         <EntityTypeShape EntityType="EmploymentCenterModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmploymentCenterModel.Вакансия" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmploymentCenterModel.Работодатель" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EmploymentCenterModel.Специалист" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EmploymentCenterModel.Специальности" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="EmploymentCenterModel.FK_Вакансия_Работодатель" ManuallyRouted="false" />
-        <AssociationConnector Association="EmploymentCenterModel.FK_Вакансия_Специальности" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="EmploymentCenterModel.Отклик" Width="1.5" PointX="8.25" PointY="3.25" />
+        <EntityTypeShape EntityType="EmploymentCenterModel.Вакансия" Width="1.5" PointX="5.625" PointY="7.125" />
+        <EntityTypeShape EntityType="EmploymentCenterModel.Отклик" Width="1.5" PointX="7.875" PointY="7.625" />
+        <EntityTypeShape EntityType="EmploymentCenterModel.Пользователь" Width="1.5" PointX="5.625" PointY="11.625" />
+        <EntityTypeShape EntityType="EmploymentCenterModel.Работодатель" Width="1.5" PointX="3.375" PointY="7.5" />
+        <AssociationConnector Association="EmploymentCenterModel.FK_Вакансия_Работодатель" />
+        <AssociationConnector Association="EmploymentCenterModel.FK_Вакансия_Специальности" />
         <AssociationConnector Association="EmploymentCenterModel.FK_Отклик_Вакансия" />
-        <EntityTypeShape EntityType="EmploymentCenterModel.Пользователь" Width="1.5" PointX="3.375" PointY="7" />
         <AssociationConnector Association="EmploymentCenterModel.FK_Отклик_Пользователь" />
       </Diagram>
     </edmx:Diagrams>

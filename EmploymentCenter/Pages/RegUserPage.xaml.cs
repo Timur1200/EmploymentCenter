@@ -55,6 +55,21 @@ namespace EmploymentCenter.Pages
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
+            if (EmploymentCenterEntities.GetContext().Работодатель.Any(q => q.Телефон == TBoxPhone.Text) || EmploymentCenterEntities.GetContext().Пользователь.Any(q => q.Телефон == TBoxPhone.Text))
+            {
+                MessageBox.Show("Данный номер телефона занят!");
+                return;
+            }
+
+            foreach (var item in TBoxPhone.Text)
+            {
+                if (item == '_')
+                {
+                    MessageBox.Show("Заполните номер телефона!");
+                    return;
+                }
+            }
+
             if (PassBox1.Password != PassBox2.Password)
             {
                 MessageBox.Show("Введенные пароли не совпадают!");

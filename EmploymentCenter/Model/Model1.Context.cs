@@ -26,11 +26,11 @@ namespace EmploymentCenter.Model
         }
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Вакансия> Вакансия { get; set; }
-        public virtual DbSet<Работодатель> Работодатель { get; set; }
         public virtual DbSet<Специалист> Специалист { get; set; }
         public virtual DbSet<Специальности> Специальности { get; set; }
+        public virtual DbSet<Вакансия> Вакансия { get; set; }
         public virtual DbSet<Отклик> Отклик { get; set; }
         public virtual DbSet<Пользователь> Пользователь { get; set; }
+        public virtual DbSet<Работодатель> Работодатель { get; set; }
     }
 }

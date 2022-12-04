@@ -50,7 +50,7 @@ namespace EmploymentCenter.Model
         {
             get
             {
-               return EmploymentCenterEntities.GetContext().Отклик.Where(q => q.КодВакансии == this.Код && q.Статус != 2).Count();
+               return EmploymentCenterEntities.GetContext().Отклик.Where(q => q.КодВакансии == this.Код && q.Статус == 0).Count();
             }
         }
     }

@@ -20,7 +20,7 @@
             <TextBlock Text="Фио" />
             <TextBox Text="{Binding Фио}" />
             <TextBlock Text="Номер телефона" />
-                <xctk:MaskedTextBox ValueDataType="{x:Type s:String}" Mask="+7(000) 000-0000"   Text="{Binding Телефон}" />
+                <xctk:MaskedTextBox ValueDataType="{x:Type s:String}" Mask="+7(000) 000-0000" Name="TBoxPhone"  Text="{Binding Телефон}" />
                 <TextBlock Text="Почта" />
                 <TextBox Text="{Binding Почта}" />
                 <TextBlock Text="Пароль" />

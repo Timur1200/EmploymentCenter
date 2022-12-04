@@ -39,17 +39,22 @@ namespace EmploymentCenter.Pages
 
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
-            DGridClient.ItemsSource = EmploymentCenterEntities.GetContext().Отклик.Where(q => q.Вакансия.Код == _vacancy.Код && q.Статус != 2).ToList();
+            DGridClient.ItemsSource = EmploymentCenterEntities.GetContext().Отклик.Where(q => q.Вакансия.Код == _vacancy.Код && q.Статус == 0).ToList();
         }
 
         private void AcceptClick(object sender, RoutedEventArgs e)
         {
+            EmploymentCenterEntities.GetContext().SaveChanges();
+            MessageBox.Show("Что то делаю");
             Отклик отклик = DGridClient.SelectedItem as Отклик;
             отклик.Статус = (int)StatusResponseEnum.Принят;
             EmploymentCenterEntities.GetContext().SaveChanges();
+            MessageBox.Show(отклик.Код.ToString());
            
-            PageLoaded(null, null);
             Mail.SendMail(отклик.Пользователь.Почта, отклик);
+            PageLoaded(null, null);
+            
+            
         }
 
         private void DeclineClick(object sender, RoutedEventArgs e)

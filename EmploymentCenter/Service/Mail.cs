@@ -15,9 +15,12 @@ namespace EmploymentCenter.Service
         private static MailAddress from = new MailAddress("свойМайл@mail.ru", "Центр занятости");
         
 
-        public static void SendMail(string mail,Отклик response)
+        public async static void SendMail(string mail,Отклик response)
         {
-            
+            if (mail == null)
+            {
+                return;
+            }
             // кому отправляем
              MailAddress to = new MailAddress(mail);
 
@@ -27,8 +30,8 @@ namespace EmploymentCenter.Service
             // тема письма
             m.Subject =  $"Вакансия - {response.Вакансия.Название}";
             // текст письма
-            m.Body = "<h2>Здравствуйте, уважаемый ***!\r\n\r\nМеня зовут ***, я HR-менеджер компании «***».\r\n\r\n\r\nМы внимательно ознакомились с Вашим резюме (ссылка) и считаем, " +
-                "что Ваши знания и опыт соответствуют нашим заявленным требованиям на открытую вакансию нашей компании «***».</h2>";
+            m.Body = $"<h2>Здравствуйте, уважаемый {response.Пользователь.Фио}!\r\n\r\nМеня зовут {response.Вакансия.Работодатель.Фио}, я HR-менеджер компании «{response.Вакансия.Работодатель.НаименованиеКомпании}».\r\n\r\n\r\nМы внимательно ознакомились с Вашим резюме и считаем, " +
+                "что Ваши знания и опыт соответствуют нашим заявленным требованиям на открытую вакансию нашей компании.</h2>";
             // письмо представляет код html
             m.IsBodyHtml = true;
             // адрес smtp-сервера и порт, с которого будем отправлять письмо
@@ -36,7 +39,7 @@ namespace EmploymentCenter.Service
             // логин и пароль
             smtp.Credentials = new NetworkCredential("свойМайл@mail.ru", "5iefef23gjefeeeRxKmkr8rT");
             smtp.EnableSsl = true;
-            smtp.Send(m);
+          await smtp.SendMailAsync(m);
             Console.Read();
         }
     }
