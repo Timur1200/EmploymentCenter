@@ -1,4 +1,5 @@
 ﻿using EmploymentCenter.Model;
+using EmploymentCenter.Service;
 using EmploymentCenter.Windows;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace EmploymentCenter.Pages
             Отклик отклик = DGridClient.SelectedItem as Отклик;
             отклик.Статус = (int)StatusResponseEnum.Принят;
             EmploymentCenterEntities.GetContext().SaveChanges();
+            Mail.SendMail(отклик.Пользователь.Почта,отклик);
             PageLoaded(null, null);
         }
 
@@ -56,5 +58,7 @@ namespace EmploymentCenter.Pages
             EmploymentCenterEntities.GetContext().SaveChanges();
             PageLoaded(null, null);
         }
+
+       
     }
 }

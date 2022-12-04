@@ -129,6 +129,7 @@
       <DependentUpon>VacancyList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\Helper.cs" />
+    <Compile Include="Service\Mail.cs" />
     <Compile Include="Service\PageNavigator.cs" />
     <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
