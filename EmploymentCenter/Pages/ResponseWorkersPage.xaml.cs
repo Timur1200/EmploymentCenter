@@ -47,8 +47,9 @@ namespace EmploymentCenter.Pages
             Отклик отклик = DGridClient.SelectedItem as Отклик;
             отклик.Статус = (int)StatusResponseEnum.Принят;
             EmploymentCenterEntities.GetContext().SaveChanges();
-            Mail.SendMail(отклик.Пользователь.Почта,отклик);
+           
             PageLoaded(null, null);
+            Mail.SendMail(отклик.Пользователь.Почта, отклик);
         }
 
         private void DeclineClick(object sender, RoutedEventArgs e)
